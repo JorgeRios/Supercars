@@ -9,6 +9,9 @@ class Home extends Component {
     return <div><br/><br/><br/><br/>
       Este es el Home
       <button onClick={(e) => dispatch(clickButton())}>Probando</button>
+      <ul>
+        props.token.map((item)=> <li key={item.val}>{item.param}</li>)
+      </ul>
       </div>
   }
 }

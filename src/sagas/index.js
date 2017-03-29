@@ -8,10 +8,10 @@ const log = (msg)=> {console.log(msg)};
 
 const tryTest = function* () {
   log("entro en el trytest");
-  let val = yield fetch("http://10.0.1.199:5000/prueba");
-  let res = val.json();
+  let val = yield fetch("http://127.0.0.1:5000/prueba");
+  let res = yield val.json();
   log("viendo el resultado");
-  log(res.results); 
+  log(res); 
   yield(successButton(res.results));
 }
 
