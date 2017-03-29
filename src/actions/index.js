@@ -1,0 +1,20 @@
+import {TEST_BUTTON, SUCCESS_LOGIN} from '../constants/constants.js';
+
+const log = (msg) => console.log(msg);
+
+
+export const clickButton = () => {
+  log("entrando en accion clickButton");
+  return {
+    type: TEST_BUTTON
+  }
+}
+
+export const successButton = (token) => {
+  log("viendo successbutton en actions temrina el ciclo");
+  log(token);
+  return {
+    type: SUCCESS_LOGIN,
+    token
+  }
+}
