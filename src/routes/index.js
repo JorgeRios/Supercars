@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, { Component }  from 'react';
 import {
   BrowserRouter as router,
   Route,
@@ -9,6 +9,7 @@ import {
 import SuperCars from '../routes/supercars';
 import MuscleCars from '../routes/musclecars';
 import Home from '../routes/home';
+import {connect} from 'react-redux';
 
 const styles = {}
 styles.nav = {
@@ -45,7 +46,7 @@ const NavLink = (props) => (
   </li>
 )
 
-class Index extends React.Component {
+class Index extends Component {
    render() {
      return (
       <div>
@@ -67,4 +68,5 @@ class Index extends React.Component {
 styles.comp= {
   margin: '50px'
 }
-export default Index;
+
+export default Index
