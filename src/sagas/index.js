@@ -1,6 +1,6 @@
 import {takeEvery, call, put, select} from 'redux-saga/effects';
-import { TEST_BUTTON, MAKE_LOGIN, LOGIN_SUCCESS, BRING_CARS } from '../constants/constants.js';
-import { successButton, loginSuccess, getRows } from '../actions';
+import { TEST_BUTTON, MAKE_LOGIN, LOGIN_SUCCESS, BRING_CARS, LOG_OUT, CAR_DETAIL } from '../constants/constants.js';
+import { successButton, loginSuccess, getRows, logOutSuccess } from '../actions';
 
 
 
@@ -41,10 +41,33 @@ const getCars = function* (action) {
   yield put(getRows(result));
 }
 
+const logOut = function* (props){
+  console.log("saga LOG_OUT", props);
+  let method = {method: 'DELETE', body: JSON.stringify({usuario: props.token.usuario, id:props.token.id})};
+  let request = "http://127.0.0.1:5555/api/token";
+  let p = yield fetch(request, method);
+  let r = yield p.json();
+  console.log("terminando el fetch en logut")
+  yield put(logOutSuccess())
+  
+}
+
+const getCar = function* (props) {
+  let request = `http://127.0.0.1:5555/api/car?id=${props.car}`;
+  let p = yield fetch(request);
+  let r = p.json();
+  console.log("valor de response "+ r);
+  console.log(request);
+  
+
+}
+
 const loginSaga = function* () {
   log("arranca la saga");
   yield takeEvery(MAKE_LOGIN, login);
   yield takeEvery(BRING_CARS, getCars);
+  yield takeEvery(LOG_OUT, logOut);
+  yield takeEvery(CAR_DETAIL, getCar);
 }
 
 

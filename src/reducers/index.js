@@ -1,5 +1,5 @@
 const log = (msg)=> console.log(msg);
-import { LOGIN_SUCCESS, USUARIO_TEXT, PASSWORD_TEXT, GET_ROWS } from '../constants/constants.js';
+import { LOGIN_SUCCESS, USUARIO_TEXT, PASSWORD_TEXT, GET_ROWS, LOG_OUT_SUCCESS } from '../constants/constants.js';
 
 const initialState = {
   token: '',
@@ -32,7 +32,13 @@ export default (state = initialState, action)=> {
     console.log(action.rows.data)
     return {
       ...state,
-      cars: action.rows.data
+      cars: action.rows.data,
+      calis: "desde reducer"
+    }
+    case LOG_OUT_SUCCESS:
+    return {
+      ...state,
+      token: ''  
     }
     default:
      return state

@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import reducers from '../reducers';
 import {initialState} from '../reducers';
-import loginSaga from '../sagas/'
+import loginSaga from '../sagas/index'
 
 const sagaMiddleware = createSagaMiddleware();
 

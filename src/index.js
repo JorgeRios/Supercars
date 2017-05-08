@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Index from './routes/index';
 import './index.css';
 import store from './store';
+import './styles/app.css'
 import {
   BrowserRouter as Router,
   Route,

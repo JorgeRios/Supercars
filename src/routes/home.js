@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import styled from 'styled-components';
 import {connect} from 'react-redux';
-import { clickButton, makeLogin, handleInput } from '../actions';
+import { clickButton, makeLogin, handleInput, logout } from '../actions';
 import { withGoogleMap } from "react-google-maps";
 import LoginForm from '../components/loginform';
 
@@ -17,9 +18,29 @@ const formStyle = {
   margin: '5%'
 }
 
+const Yeah = styled.section`
+padding: 20px;
+background: #FFFF50;
+border-radius: 5px;
+width:50%;
+&:hover {
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+`;
+
+
 const probando = ()=> (
   <div>sii</div>
 )
+
+const Wacha = ()=> {
+  let a=1;
+  let b=2;
+  let c =a+b;
+  return (
+  <div>este es wacha {c}</div>
+  )
+}
 class Home extends Component {
 
   render() {
@@ -27,14 +48,16 @@ class Home extends Component {
     console.log("token"+ token)
     console.log(token === "")
     return <div><br/><br/><br/><br/>
-      Este es el Home
-      <button onClick={(e) => dispatch(clickButton())}>Probando</button>
       <br/>
       { token === "" ?
         <LoginForm style ={formStyle}  onChange={(e)=> dispatch(handleInput(e))} onClick={() => dispatch(makeLogin())} />
-	: <div>estas logeado</div>
+	: <button onClick={()=> dispatch(logout(token))}>Log out</button>
       }
       </div>
+  }
+  componentDidMount() {
+    const {token, dispatch} = this.props;
+    console.log("en didtmount viendo el token", token);
   }
 }
 

@@ -5,3 +5,6 @@ export const USUARIO_TEXT = 'USUARIO_TEXT';
 export const PASSWORD_TEXT = 'PASSWORD_TEXT';
 export const BRING_CARS = 'BRING_CARS';
 export const GET_ROWS = 'GET_ROWS';
+export const LOG_OUT = 'LOG_OUT';
+export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
+export const CAR_DETAIL = 'CAR_DETAIL';

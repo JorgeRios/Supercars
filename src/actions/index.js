@@ -1,6 +1,6 @@
 import { TEST_BUTTON, LOGIN_SUCCESS, MAKE_LOGIN, 
 	USUARIO_TEXT, PASSWORD_TEXT, BRING_CARS, 
-	GET_ROWS } from '../constants/constants.js';
+	GET_ROWS, LOG_OUT, LOG_OUT_SUCCESS, CAR_DETAIL } from '../constants/constants.js';
 
 const log = (msg) => console.log(msg);
 
@@ -60,5 +60,29 @@ export const getRows = (rows)=> {
   return {
     type: GET_ROWS,
     rows
+  }
+}
+
+
+export const logout = (token)=> {
+  console.log("si llego a primer action logut");
+  return {
+    type: LOG_OUT,
+    token
+  }
+}
+
+export const logOutSuccess = ()=> {
+  return {
+    type: LOG_OUT_SUCCESS,
+    token: ""
+  }
+}
+
+export const carDetail = (car)=> {
+  log("entro en car detail "+ car);
+  return {
+    type: CAR_DETAIL,
+    car: car
   }
 }

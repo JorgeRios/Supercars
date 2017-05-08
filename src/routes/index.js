@@ -9,6 +9,7 @@ import {
 import SuperCars from '../routes/supercars';
 import MuscleCars from '../routes/musclecars';
 import Home from '../routes/home';
+import Clock from '../routes/clock';
 import {connect} from 'react-redux';
 
 const styles = {}
@@ -54,11 +55,13 @@ class Index extends Component {
 	<NavLink to="/">Home</NavLink>
 	<NavLink to="/supercars">Super Cars</NavLink>
 	<NavLink to="/musclecars">Muscle Cars</NavLink>
+	<NavLink to="/clock">Clock</NavLink>
 	</ul>
 
 	<Route exact path="/" component={Home}/>
 	<Route exact path="/supercars" component={SuperCars}/>
 	<Route exact path="/musclecars" component={MuscleCars}/>
+	<Route exact path="/clock" component={Clock}/>
       </div>
     )
    }

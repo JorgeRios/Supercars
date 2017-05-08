@@ -1,17 +1,31 @@
 import React  from 'react';
+import Title from './title';
 
 const divStyle = {
-  width: 100,
-  heigth: 140
+  width: 200,
+  heigth: 240
 }
 
 const titleStyle = {
   color: "#088A85"
 }
-export default ({path, name, year})=> {
-  console.log("path "+ path)
-  return  <div>
-	  <img style={divStyle} src={path} />
-	  <p style={titleStyle}>{name} {year}</p>
-	  </div>
+const linkStyle = {
+ "text-decoration": "none"
+}
+export default ({ index, path, name, year, style, onClick, id })=> {
+  let br = null 
+	  console.log("valor de index "+ index);
+  if(index%4 === 0){
+    <br/>
+  }else {
+   br = null
+  }
+  console.log("holaaa", id);
+  return (
+    <div style={style}>
+    <img style={divStyle} src={path} />
+    <Title title={name} year={year} id={id} />
+    {br}
+    </div>
+  )
 }
