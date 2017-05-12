@@ -1,6 +1,7 @@
 import { TEST_BUTTON, LOGIN_SUCCESS, MAKE_LOGIN, 
 	USUARIO_TEXT, PASSWORD_TEXT, BRING_CARS, 
-	GET_ROWS, LOG_OUT, LOG_OUT_SUCCESS, CAR_DETAIL } from '../constants/constants.js';
+	GET_ROWS, LOG_OUT, LOG_OUT_SUCCESS, 
+	CAR_DETAIL, CAR_SUCCESS, SELECT_CAR } from '../constants/constants.js';
 
 const log = (msg) => console.log(msg);
 
@@ -85,4 +86,19 @@ export const carDetail = (car)=> {
     type: CAR_DETAIL,
     car: car
   }
+}
+
+export const carSuccess = (detail)=> {
+  return {
+    type: CAR_SUCCESS,
+    detail,
+  }
+}
+
+export const selectCar = (car)=> {
+  console.log("entro en select_car "+ car);
+  return {
+    type: SELECT_CAR,
+    car,
+  } 
 }

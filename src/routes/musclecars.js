@@ -110,7 +110,7 @@ class  MuscleCars extends Component {
      <h4><br/><br/><br/><br/>Muscle Cars</h4>
      <br/>
      {token === "" ? <div style={styleWarning}>debes estar logeado para ver los autos </div> :
-       <RowItems cars={cars} />   
+       <RowItems cars={cars} dispatch={dispatch} />
      }
    <br/>
    <br/>
@@ -136,7 +136,7 @@ const mapStateToProps = (state)=> {
   return {
     token: state.token,
     cars: state.cars,
-    calis: state.calis
+    calis: state.calis,
   }
 }
 

@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import SuperCars from '../routes/supercars';
 import MuscleCars from '../routes/musclecars';
+import Features from '../routes/features';
 import Home from '../routes/home';
 import Clock from '../routes/clock';
 import {connect} from 'react-redux';
@@ -62,6 +63,7 @@ class Index extends Component {
 	<Route exact path="/supercars" component={SuperCars}/>
 	<Route exact path="/musclecars" component={MuscleCars}/>
 	<Route exact path="/clock" component={Clock}/>
+	<Route exact path="/features" component={Features}/>
       </div>
     )
    }

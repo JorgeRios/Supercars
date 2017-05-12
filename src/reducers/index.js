@@ -1,11 +1,15 @@
 const log = (msg)=> console.log(msg);
-import { LOGIN_SUCCESS, USUARIO_TEXT, PASSWORD_TEXT, GET_ROWS, LOG_OUT_SUCCESS } from '../constants/constants.js';
+import { LOGIN_SUCCESS, USUARIO_TEXT, 
+	PASSWORD_TEXT, GET_ROWS, 
+	LOG_OUT_SUCCESS, CAR_SUCCESS, SELECT_CAR } from '../constants/constants.js';
 
 const initialState = {
   token: '',
   usuario: '',
   password: '',
-  cars: []
+  cars: [],
+  detail: [],
+  car: ''
 };
 
 export default (state = initialState, action)=> {
@@ -29,7 +33,7 @@ export default (state = initialState, action)=> {
       password: action.val
     }
     case GET_ROWS:
-    console.log(action.rows.data)
+    console.log("quiero get_rows  "+action.rows.data)
     return {
       ...state,
       cars: action.rows.data,
@@ -40,8 +44,18 @@ export default (state = initialState, action)=> {
       ...state,
       token: ''  
     }
+    case SELECT_CAR:
+    return {
+      ...state,
+      car: action.car
+    }
+    case CAR_SUCCESS:
+    console.log("viendo este en reducer "+ action.detail)
+    return {
+      ...state,
+      detail: action.detail,
+    }
     default:
      return state
   }
- 
 }

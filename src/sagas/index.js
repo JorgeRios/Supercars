@@ -1,6 +1,6 @@
 import {takeEvery, call, put, select} from 'redux-saga/effects';
-import { TEST_BUTTON, MAKE_LOGIN, LOGIN_SUCCESS, BRING_CARS, LOG_OUT, CAR_DETAIL } from '../constants/constants.js';
-import { successButton, loginSuccess, getRows, logOutSuccess } from '../actions';
+import { TEST_BUTTON, MAKE_LOGIN, LOGIN_SUCCESS, BRING_CARS, LOG_OUT, CAR_DETAIL, CAR_SUCCESS } from '../constants/constants.js';
+import { successButton, loginSuccess, getRows, logOutSuccess, carSuccess } from '../actions';
 
 
 
@@ -54,11 +54,14 @@ const logOut = function* (props){
 
 const getCar = function* (props) {
   let request = `http://127.0.0.1:5555/api/car?id=${props.car}`;
+  let state = yield select();
+  let filter  = yield state.cars.filter((item)=>{if(item.id === props.car){return true}});
+  let [car] = filter;
   let p = yield fetch(request);
-  let r = p.json();
-  console.log("valor de response "+ r);
-  console.log(request);
-  
+  let result = yield p.json();
+  console.log("viendo antes de dar a reducer "+result.features[0]);
+  yield put(carSuccess(result.features[0]))
+  //yield put({type: CAR_SUCCESS, result, "car": car});
 
 }
 

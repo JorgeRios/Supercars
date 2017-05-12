@@ -8,3 +8,5 @@ export const GET_ROWS = 'GET_ROWS';
 export const LOG_OUT = 'LOG_OUT';
 export const LOG_OUT_SUCCESS = 'LOG_OUT_SUCCESS';
 export const CAR_DETAIL = 'CAR_DETAIL';
+export const CAR_SUCCESS = 'CAR_SUCCESS';
+export const SELECT_CAR = 'SELECT_CAR';

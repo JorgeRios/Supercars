@@ -12,9 +12,8 @@ const titleStyle = {
 const linkStyle = {
  "text-decoration": "none"
 }
-export default ({ index, path, name, year, style, onClick, id })=> {
+export default ({ index, path, name, year, style, onClick, id, children })=> {
   let br = null 
-	  console.log("valor de index "+ index);
   if(index%4 === 0){
     <br/>
   }else {
@@ -25,6 +24,7 @@ export default ({ index, path, name, year, style, onClick, id })=> {
     <div style={style}>
     <img style={divStyle} src={path} />
     <Title title={name} year={year} id={id} />
+    {children}
     {br}
     </div>
   )
